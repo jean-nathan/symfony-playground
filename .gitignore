@@ -1,0 +1,30 @@
+# Symfony / PHP
+/vendor/
+/var/
+/.env.local
+/.env.local.php
+/.env.test
+/.env.test.local
+/.phpunit.result.cache
+/phpunit.xml
+
+# IDEs
+.idea/
+.vscode/
+
+# Mac
+.DS_Store
+
+# Node / Frontend
+/node_modules/
+npm-debug.log
+yarn-error.log
+
+# Docker
+docker-compose.override.yml
+*.log
+
+# Estudos
+studies/**/node_modules/
+studies/**/vendor/
+studies/**/.DS_Store
