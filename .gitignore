@@ -1,6 +1,7 @@
 # Symfony / PHP
 /vendor/
 /var/
+/.env
 /.env.local
 /.env.local.php
 /.env.test
