@@ -13,3 +13,5 @@ Bem-vindo à pasta de estudos do projeto Symfony! Aqui você encontra todos os t
 
 ### 02 - Symfony com Docker
 - [01-guia-completo.md](./02-symfony-com-docker/01-guia-completo.md)
+- [02-estrutura-projeto.md](./02-symfony-com-docker/02-estrutura-projeto.md)
+- [03-sobre-docker-compose-yml.md](./02-symfony-com-docker/03-sobre-docker-compose-yml.md)
