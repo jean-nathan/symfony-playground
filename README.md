@@ -1,40 +1,70 @@
-Perfeito! Aqui está o README ajustado para refletir o nome do projeto **`symfony-playground`**:
-
----
-
 # 📚 Symfony Playground
 
-Este repositório é dedicado ao estudo e prática do framework **Symfony 6**, incluindo configuração, Docker, migrações, estrutura de projeto e exemplos práticos.
+Projeto de estudos e prática do framework **Symfony 6** com Docker, focado em aprendizado de configuração, migrações e desenvolvimento.
 
----
+## 🚀 Instalação e Configuração
 
-## 🗂 Estrutura do Projeto (arquivos versionados no Git)
+### 1. Clone o repositório
+```bash
+git clone <repository-url>
+cd symfony-playground
+```
+
+### 2. Instale Docker e Docker Compose
+Baixe e instale o [Docker](https://docs.docker.com/get-docker/) e [Docker Compose](https://docs.docker.com/compose/install/) para gerenciar os containers da aplicação.
+
+### 3. Configure as variáveis de ambiente
+```bash
+cp .env.example .env.local
+```
+**Por que:** O `.env.local` contém configurações específicas do seu ambiente local (senhas, URLs) que não devem ser versionadas.
+
+### 4. Suba os containers
+```bash
+docker-compose up -d
+```
+**Por que:** Inicia todos os serviços (PHP, Nginx, MySQL, Redis) em background de forma isolada e reproduzível.
+
+### 5. Instale as dependências PHP
+```bash
+docker-compose exec app composer install
+```
+**Por que:** Instala todas as dependências do Symfony dentro do container PHP usando as versões exatas do `composer.lock`.
+
+### 6. Acesse a aplicação
+Abra no navegador: [http://localhost:9000](http://localhost:9000)
+
+## 🗂 Estrutura do Projeto
 
 ```text
 symfony-playground/
-├── bin/                  # Scripts executáveis do Symfony
-├── config/               # Arquivos de configuração do projeto
-├── docker/               # Configurações e scripts para Docker
-├── migrations/           # Migrações do banco de dados
-├── public/               # Pasta pública, raiz do servidor web
+├── docker/               # Configurações Docker (Nginx, PHP)
 ├── src/                  # Código-fonte da aplicação
-├── studies/              # Anotações e estudos pessoais
-├── .env                  # Variáveis de ambiente
-├── .env.dev              # Variáveis de ambiente para desenvolvimento
-├── .gitignore            # Arquivos e pastas ignorados pelo Git
-├── composer.json         # Dependências e configurações do Composer
-├── composer.lock         # Registro das versões instaladas do Composer
-├── docker-compose.yml    # Configuração do Docker Compose
-├── Dockerfile            # Dockerfile da aplicação
-├── README.md             # Documentação do projeto
-└── symfony.lock          # Controle de versão do Symfony
+├── studies/              # Anotações e estudos versionados
+├── .env.example          # Template de variáveis de ambiente
+├── composer.json         # Dependências com versões travadas
+├── docker-compose.yml    # Orquestração dos containers
+└── Dockerfile            # Imagem PHP personalizada
 ```
 
----
+## 🛠 Comandos Úteis
 
-## ⚙️ Observações
+```bash
+# Parar containers
+docker-compose down
 
-* A pasta **`studies/`** contém todas as anotações e arquivos de estudo versionados.
-* Arquivos de ambiente locais (como `.env.local`) **não devem ser commitados**.
+# Ver logs
+docker-compose logs app
 
----
+# Acessar container PHP
+docker-compose exec app bash
+
+# Executar comandos Symfony
+docker-compose exec app php bin/console cache:clear
+```
+
+## 📝 Observações
+
+- Versões travadas no `composer.json` garantem builds reproduzíveis
+- Arquivos `.env.local` não são commitados por segurança
+- Pasta `studies/` contém anotações de aprendizado versionadas
