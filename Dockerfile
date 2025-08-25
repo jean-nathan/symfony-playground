@@ -1,4 +1,5 @@
-FROM php:8.2-fpm
+# Versão específica do PHP
+FROM php:8.2.12-fpm
 
 # Instalar dependências do sistema
 RUN apt-get update && apt-get install -y \
@@ -15,8 +16,8 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-configure intl \
     && docker-php-ext-install pdo pdo_mysql pdo_pgsql mbstring exif pcntl bcmath gd intl zip opcache
 
-# Instalar Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+# Instalar versão específica do Composer
+COPY --from=composer:2.6.5 /usr/bin/composer /usr/bin/composer
 
 # Configurar diretório de trabalho
 WORKDIR /var/www

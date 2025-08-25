@@ -9,6 +9,9 @@ services:
     container_name: symfony_app
     restart: unless-stopped
     working_dir: /var/www
+    env_file:
+      - .env          # sempre carregado
+      - .env.local    # sobrescreve variáveis do .env
     volumes:
       - ./:/var/www
       - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
@@ -20,7 +23,7 @@ services:
 
   # Servidor Web (Nginx)
   webserver:
-    image: nginx:alpine
+    image: nginx:1.25.3-alpine
     container_name: symfony_nginx
     restart: unless-stopped
     ports:
@@ -35,7 +38,7 @@ services:
 
   # Banco de dados MySQL
   db:
-    image: mysql:8.0
+    image: mysql:8.0.35 
     container_name: symfony_mysql
     restart: unless-stopped
     environment:
@@ -52,15 +55,13 @@ services:
 
   # Redis para cache/sessões
   redis:
-    image: redis:7-alpine
+    image: redis:7.2.3-alpine  
     container_name: symfony_redis
     restart: unless-stopped
     ports:
       - "6380:6379"
     networks:
       - symfony_network
-
-
 
 networks:
   symfony_network:
