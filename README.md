@@ -59,7 +59,11 @@ docker-compose logs app
 # Acessar container PHP
 docker-compose exec app bash
 
-# Executar comandos Symfony
+# Executar comando Symfony dentro do container
+php bin/console cache:clear
+```
+
+# Executar comandos Symfony fora do container
 docker-compose exec app php bin/console cache:clear
 ```
 
