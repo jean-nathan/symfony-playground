@@ -16,10 +16,10 @@
         "symfony/flex": "2.8.1",
         "symfony/framework-bundle": "6.4.24",
         "symfony/runtime": "6.4.24",
-        "symfony/twig-bundle": "6.4.*",
+        "symfony/twig-bundle": "6.4.24",
         "symfony/yaml": "6.4.24",
-        "twig/extra-bundle": "2.12|3.0",
-        "twig/twig": "2.12|3.0"
+        "twig/extra-bundle": "3.21.0",
+        "twig/twig": "3.21.1"
     },
     "require-dev": {
         "symfony/maker-bundle": "1.64.0"
