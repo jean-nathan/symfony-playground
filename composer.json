@@ -15,6 +15,7 @@
         "symfony/dotenv": "6.4.24",
         "symfony/flex": "2.8.1",
         "symfony/framework-bundle": "6.4.24",
+        "symfony/monolog-bundle": "3.0",
         "symfony/runtime": "6.4.24",
         "symfony/twig-bundle": "6.4.24",
         "symfony/yaml": "6.4.24",
@@ -22,7 +23,10 @@
         "twig/twig": "3.21.1"
     },
     "require-dev": {
-        "symfony/maker-bundle": "1.64.0"
+        "symfony/debug-bundle": "6.4.*",
+        "symfony/maker-bundle": "1.64.0",
+        "symfony/stopwatch": "6.4.*",
+        "symfony/web-profiler-bundle": "6.4.*"
     },
     "config": {
         "allow-plugins": {

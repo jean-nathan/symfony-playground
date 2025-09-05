@@ -12,6 +12,10 @@ framework:
         cookie_secure: auto
         cookie_samesite: lax
 
+# Trust all proxies (necessary when running behind Nginx in Docker)
+    trusted_proxies: '0.0.0.0/0'
+    trusted_hosts: ~
+
     #esi: true
     #fragments: true
     php_errors:
